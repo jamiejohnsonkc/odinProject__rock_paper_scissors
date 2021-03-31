@@ -1,0 +1,12 @@
+{
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "standard.nodePath": "/home/jamie/node_modules/",
+  "standard.usePackageJson": true,
+  "standard.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ]
+}
