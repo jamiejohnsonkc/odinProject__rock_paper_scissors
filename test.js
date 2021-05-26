@@ -2,7 +2,7 @@ let test = 1
 
 console.log(test)
 
-function foo() {
+function foo () {
   test += 1
   return test
 }
@@ -17,7 +17,7 @@ console.log(foo())
 
 test += 1
 
-i = 0
+let i = 0
 while (i < 10) {
   test++
   i++
