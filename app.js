@@ -14,7 +14,7 @@ Array.from(moves).forEach((move) => {
     playerSelection = move.innerText
     console.log(`event ${playerSelection} ${computerSelection}`)
     playRound()
-    logScore()
+      logScore()
   })
 })
 
