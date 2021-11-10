@@ -1,8 +1,20 @@
 {
   "folders": [
-	{
-		"path": "."
-	}
-],
-  "settings": {}
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.colorTheme": "Community Material Theme Darker High Contrast",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "prettier.resolveGlobalModules": true,
+    "editor.formatOnSave": true,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "git.enableSmartCommit": true,
+    "output.smartScroll.enabled": false
+  }
 }
