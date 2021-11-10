@@ -1,6 +1,3 @@
-<!-- An absolute URL - points to another web site (like src="http://www.example.com/example.js") -->
-<!-- A relative URL - points to a file within a web site (like src="/scripts/example.js") -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,10 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" src="style.css"</link>
-    <script src="myscripts.js"></script>
-    <title>Rock Paper Scissors</title>
+    <script src="app.js" defer></script>
+    <title>RPS</title>
+    <!-- <button onclick='alertFunction("warning")'>Click Me</button> -->
+
 </head>
 <body>
-    <h1>foo</h1>
+    <h1>ROCK</h1>
+    <h1>PAPER</h1>
+    <h1>SCISSORS</h1>
+    <h1>BRUH!</h1>
+    <h3>Test your farkling savvy against the might of the CPU</h3>
+    <h5>go ahead make a move wuss</h5>
+    
+    <button id="rock" class="move">rock</button>
+    <button id="paper" class="move">paper</button>
+    <button id="scissors" class="move">scissors</button>
+    <div id="score"></div>
+    <div id="result"></div>
+    <div id="outcome"></div>
+
 </body>
 </html>

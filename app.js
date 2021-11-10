@@ -1,73 +1,63 @@
-// let playerSelection
-// let playerWinTotal = 0
-// let computerWinTotal = 0
-// let computerSelection
-// let rock
-// let paper
+const moves = document.getElementsByClassName('move')
+let playerSelection = ''
+let computerSelection = ''
+let player1Score = 0
+let cpuScore = 0
+let score = document.querySelector('#score')
+let result = document.querySelector('#result')
+let outcome = document.querySelector('#outcome')
 
-function game() {
-  function computerPlay() {
-    const options = ['rock', 'paper', 'scissors']
-    return options[Math.floor(Math.random() * options.length)]
-  }
-  const computerSelection = computerPlay()
-  let playerSelection
-  let computerScore = 0
-  let playerScore = 0
+console.log(moves)
 
-  function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'rock' && computerSelection === 'paper') {
-      computerScore++
-      return `Paper beats rock. You lose! The score is player ${playerScore} computer ${computerScore}`
-    } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-      playerScore++
-      return `Rock beats scissors. You win! The score is player ${playerScore} computer ${computerScore}`
-    } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-      playerScore++
-      return `Paper beats rock. You win! The score is player ${playerScore} computer ${computerScore}`
-    } else if (
-      playerSelection === 'paper' &&
-      computerSelection === 'scissors'
-    ) {
-      computerScore++
-      return `Scissors beat paper. You lose! The score is player ${playerScore} computer ${computerScore}`
-    } else if (
-      playerSelection === 'scisssors' &&
-      computerSelection === 'rock'
-    ) {
-      computerScore++
-      return `Rock beats scissors. You lose! The score is player ${playerScore} computer ${computerScore}`
-    } else if (
-      playerSelection === 'scissors' &&
-      computerSelection === 'paper'
-    ) {
-      playerScore++
-      return `Scissors beat paper. You win! The score is player ${playerScore} computer ${computerScore}`
-    } else {
-      return `It's a tie! The score is player ${playerScore} computer ${computerScore}`
-    }
-  }
+Array.from(moves).forEach((move) => {
+  move.addEventListener('click', (e) => {
+    playerSelection = move.innerText
+    console.log(`event ${playerSelection} ${computerSelection}`)
+    playRound()
+    logScore()
+  })
+})
 
-  for (let i = 0; i < 5; i++) {
-    const playerSelection = prompt('Type: Rock, Paper, or Scissors')
-    const computerSelection = computerPlay()
-    // playRound(playerSelection, computerSelection)
-    console.log(playRound(playerSelection, computerSelection))
-    // playRound()
-  }
-  if (playerScore === computerScore) {
-    console.log(
-      `Wow somehow you managed to tie the game. The score was player ${playerScore} computer ${computerScore}. Play again.`
-    )
-  } else if (playerScore >= computerScore) {
-    console.log(
-      `The final score is player ${playerScore} computer ${computerScore}. Congrats! you won the game.`
-    )
+function cpuSelect() {
+  var select = moves[Math.floor(Math.random() * moves.length)]
+  computerSelection = select.innerText
+}
+
+function playRound() {
+  cpuSelect()
+  console.log(`playround ${playerSelection} ${computerSelection}`)
+  if (playerSelection === computerSelection) {
+    result.style.display = 'block'
+    result.textContent =
+      'You both chose' + ' ' + playerSelection + '. ' + 'lame.'
+  } else if (
+    (playerSelection === 'rock' && computerSelection === 'scissors') ||
+    (playerSelection === 'paper' && computerSelection === 'rock') ||
+    (playerSelection === 'scissors' && computerSelection === 'paper')
+  ) {
+    result.style.display = 'block'
+    result.textContent = 'You chose wisely.  Well done.'
+    player1Score++
   } else {
-    console.log(
-      `Final score is player ${playerScore} computer ${computerScore}. You lose. try again.`
-    )
+    result.style.display = 'block'
+    result.textContent = 'You lose fuckface. Try again.'
+    cpuScore++
+  }
+  score.style.display = 'block'
+  score.textContent = 'The score is ' + player1Score + ' to ' + cpuScore + '.'
+  if (cpuScore === 5) {
+    result.textContent = 'game over man. game over.'
+    result.onclick = () => {
+      window.location.reload(false)
+    }
+  } else if (player1Score === 5) {
+    result.textContent = 'you are victorious'
+    result.onclick = () => {
+      window.location.reload(false)
+    }
   }
 }
 
-game()
+function logScore() {
+  console.log(`log score player ${player1Score} cpu ${cpuScore}`)
+}
